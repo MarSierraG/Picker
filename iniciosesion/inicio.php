@@ -4,14 +4,8 @@ session_start();
 
 //Inicio en Picker 
 // Conexión a la base de datos
-if ($_SERVER['SERVER_NAME'] === 'localhost') {
-    $host = '127.0.0.1';
-    $puerto = 49321; // ← Usa aquí el puerto que te dé Railway
-} else {
-    $host = 'mysql.railway.internal';
-    $puerto = 3306;
-}
-
+$host = ($_SERVER['SERVER_NAME'] === 'localhost') ? 'tramway.proxy.rlwy.net' : 'mysql.railway.internal';
+$puerto = 3306;
 $usuariobd = 'root';
 $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
 $bd = 'railway';
@@ -138,14 +132,8 @@ mysqli_close($conn);
 //Inicio en Picker 
 
 // Conexión a la base de datos
-if ($_SERVER['SERVER_NAME'] === 'localhost') {
-    $host = '127.0.0.1';
-    $puerto = 49321; // ← Usa aquí el puerto que te dé Railway
-} else {
-    $host = 'mysql.railway.internal';
-    $puerto = 3306;
-}
-
+$host = ($_SERVER['SERVER_NAME'] === 'localhost') ? 'tramway.proxy.rlwy.net' : 'mysql.railway.internal';
+$puerto = 3306;
 $usuariobd = 'root';
 $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
 $bd = 'railway';
