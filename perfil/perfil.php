@@ -41,7 +41,7 @@ if (empty($_SESSION['usuario'])){
             <?php
             
             // Conexión a la base de datos
-            $host = 'mysql.railway.internal';
+            $host = ($_SERVER['SERVER_NAME'] === 'localhost') ? 'tramway.proxy.rlwy.net' : 'mysql.railway.internal';
             $puerto = 3306;
             $usuariobd = 'root';
             $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
