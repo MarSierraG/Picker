@@ -83,15 +83,17 @@ if (empty($_SESSION['usuario'])){
 
     <?php
     
-// Conexión a la base de datos
-$host = 'localhost';
-$usuariobd = 'mar';
-$contraseñabd = '1234';
-$bd = 'picker';
+    // Conexión a la base de datos
+    $host = 'mysql.railway.internal';
+    $puerto = 3306;
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
 
-//Crear la conexión a la base de datos y verificar la conexión
-try{$conn = mysqli_connect($host, $usuariobd, $contraseñabd, $bd);}
-catch (Exception $error){
+
+    //Crear la conexión a la base de datos y verificar la conexión
+    try{$conn = mysqli_connect($host, $usuariobd, $contraseñabd, $bd, $puerto);}
+    catch (Exception $error){
     $error = "Error al conectarse a la base de datos en perfilusuario.php: " . $error->getMessage();
     error_log($error);
     echo "<script>alert('Se ha producido un error, vuelva en 5 minutos.');</script>";
