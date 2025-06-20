@@ -28,18 +28,24 @@
 
 //Registro en Picker 
 
-            // Conexión a la base de datos
-            if ($_SERVER['SERVER_NAME'] === 'localhost') {
-                $host = '127.0.0.1';
-                $puerto = 49321; // ← Usa aquí el puerto que te dé Railway
-            } else {
-                $host = 'mysql.railway.internal';
-                $puerto = 3306;
-            }
+// Detectar si estamos en Railway o en local
+$isRailway = !empty(getenv("RAILWAY_STATIC_URL")) || $_SERVER['SERVER_NAME'] !== 'localhost';
 
-            $usuariobd = 'root';
-            $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
-            $bd = 'railway';
+if ($isRailway) {
+    // Railway
+    $host = 'mysql.railway.internal';
+    $puerto = 3306;
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+} else {
+    // Local (usa aquí tu conexión a Railway externa con host público)
+    $host = 'containers-us-west-xxx.railway.app';  // <- cámbialo por el host externo real
+    $puerto = 12345;                               // <- cámbialo por el puerto externo real
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+}
 
 
 //Crear la conexión a la base de datos y verificar la conexión

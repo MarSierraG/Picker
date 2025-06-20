@@ -3,12 +3,24 @@ session_start();
 
 
 //Inicio en Picker 
-// Conexión a la base de datos
-$host = ($_SERVER['SERVER_NAME'] === 'localhost') ? 'tramway.proxy.rlwy.net' : 'mysql.railway.internal';
-$puerto = 3306;
-$usuariobd = 'root';
-$contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
-$bd = 'railway';
+// Detectar si estamos en Railway o en local
+$isRailway = !empty(getenv("RAILWAY_STATIC_URL")) || $_SERVER['SERVER_NAME'] !== 'localhost';
+
+if ($isRailway) {
+    // Railway
+    $host = 'mysql.railway.internal';
+    $puerto = 3306;
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+} else {
+    // Local (usa aquí tu conexión a Railway externa con host público)
+    $host = 'containers-us-west-xxx.railway.app';  // <- cámbialo por el host externo real
+    $puerto = 12345;                               // <- cámbialo por el puerto externo real
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+}
 
 
 //Crear la conexión a la base de datos y verificar la conexión
@@ -131,12 +143,25 @@ mysqli_close($conn);
 
 //Inicio en Picker 
 
-// Conexión a la base de datos
-$host = ($_SERVER['SERVER_NAME'] === 'localhost') ? 'tramway.proxy.rlwy.net' : 'mysql.railway.internal';
-$puerto = 3306;
-$usuariobd = 'root';
-$contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
-$bd = 'railway';
+
+// Detectar si estamos en Railway o en local
+$isRailway = !empty(getenv("RAILWAY_STATIC_URL")) || $_SERVER['SERVER_NAME'] !== 'localhost';
+
+if ($isRailway) {
+    // Railway
+    $host = 'mysql.railway.internal';
+    $puerto = 3306;
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+} else {
+    // Local (usa aquí tu conexión a Railway externa con host público)
+    $host = 'containers-us-west-xxx.railway.app';  // <- cámbialo por el host externo real
+    $puerto = 12345;                               // <- cámbialo por el puerto externo real
+    $usuariobd = 'root';
+    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
+    $bd = 'railway';
+}
 
 
 //Crear la conexión a la base de datos y verificar la conexión
