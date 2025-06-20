@@ -84,24 +84,11 @@ $aviso = false;
 
 
 <?php
-// Detectar si estamos en Railway o en local
-$isRailway = !empty(getenv("RAILWAY_STATIC_URL")) || $_SERVER['SERVER_NAME'] !== 'localhost';
-
-if ($isRailway) {
-    // Railway
-    $host = 'mysql.railway.internal';
-    $puerto = 3306;
-    $usuariobd = 'root';
-    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
-    $bd = 'railway';
-} else {
-    // Local (usa aquí tu conexión a Railway externa con host público)
-    $host = 'containers-us-west-xxx.railway.app';  // <- cámbialo por el host externo real
-    $puerto = 12345;                               // <- cámbialo por el puerto externo real
-    $usuariobd = 'root';
-    $contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS';
-    $bd = 'railway';
-}
+$host = 'containers-us-west-XXX.railway.app'; // ← pon aquí el host REAL de Railway (el largo con números)
+$puerto = 12345; // ← pon aquí el puerto REAL (por ejemplo, 49321)
+$usuariobd = 'root';
+$contraseñabd = 'SjNMLDqNkiwKHPlHXWKKLuPiGPWimKQS'; // ← cambia si lo has regenerado
+$bd = 'railway';
 
     //Crear la conexión a la base de datos y verificar la conexión
     try{$conn = mysqli_connect($host, $usuariobd, $contraseñabd, $bd, $puerto);}
