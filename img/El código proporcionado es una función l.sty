@@ -1,0 +1,32 @@
+El código proporcionado es una función llamada "arc" que se ejecuta cuando se dispara un evento en un elemento de entrada de archivo (input type="file"). La función tiene como parámetro el objeto "event" que representa el evento ocurrido.
+
+Aquí está la explicación línea por línea:
+
+var input = event.target;
+
+Se obtiene el elemento de entrada de archivo que desencadenó el evento mediante event.target. El objeto "input" contiene información sobre el elemento de entrada de archivo.
+if (input.files && input.files[0]) {
+
+Se verifica si el objeto "input" tiene la propiedad "files" y si existe al menos un archivo seleccionado.
+Esto comprueba si se ha seleccionado un archivo para subir.
+var archivo = input.files[0];
+
+Se obtiene el primer archivo seleccionado en el elemento de entrada de archivo.
+Se asume que solo se permite seleccionar un archivo a la vez.
+var maxTamano = 40 * 1024 * 1024;
+
+Se define la variable "maxTamano" que representa el tamaño máximo permitido para el archivo en bytes.
+En este caso, el tamaño máximo se establece en 40 megabytes (40 * 1024 * 1024 bytes).
+if (archivo.size > maxTamano) {
+
+Se compara el tamaño del archivo seleccionado con el tamaño máximo permitido.
+alert('El archivo es demasiado grande, no se puede subir');
+
+Si el tamaño del archivo excede el tamaño máximo permitido, se muestra una alerta indicando que el archivo es demasiado grande y no se puede subir.
+input.value = '';
+Se restablece el valor del elemento de entrada de archivo, eliminando la selección del archivo.
+Esto asegura que si el usuario intenta subir un archivo demasiado grande, se restablece el campo de selección.
+return;
+Se utiliza para salir de la función y detener la ejecución adicional si el archivo es demasiado grande.
+Evita que se realicen acciones adicionales o se envíe el formulario si el archivo supera el tamaño máximo permitido.
+Esta función sirve para validar y controlar el tamaño de los archivos seleccionados en un elemento de entrada de archivo antes de realizar alguna acción adicional, como subir el archivo al servidor. Si el archivo excede el tamaño máximo permitido, se muestra una alerta y se elimina la selección del archivo.

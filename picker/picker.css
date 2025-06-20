@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.tablaprincipal {
+    display: flex;
+}
+
+.uno {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.menu-vertical {
+    position: fixed;
+    top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-vertical a {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-vertical img {
+    width: 25px;
+    margin: 2%;
+}
+
+.dos {
+    width: 85%;
+    border-left: 1px solid #e6ecf0;
+    border-right: 1px solid #e6ecf0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    top: 0;
+    margin-top: 0;
+    background-color: #f5f8fa;
+}
+
+.tres {
+    width: 5%;
+}
+
+.texto-subido {
+    padding: 10px;
+    margin-bottom: 5%;
+    background-color: white;
+    border: 1px solid #e6ecf0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.escribirtweet{
+    width: 99%;
+    margin-bottom: 5%;
+    background-color: white;
+    border: 4px solid #e6ecf0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.botonimg{
+    cursor: pointer;
+    margin-left: 2%;
+    width: 25px;
+    margin-right: 1%;
+}
+
+.botontweet{
+    width: 25px;
+}
+
+.creador{
+    color: #a6abaf;
+    -webkit-text-stroke: 0.1px black;
+}
+
+.comentarios-secundarios {
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #e6ecf0;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.comentario-secundario {
+    margin-bottom: 10px;
+    width: 80%;
+    margin: 0 auto;
+}

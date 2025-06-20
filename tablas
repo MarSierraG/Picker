@@ -1,0 +1,71 @@
+<?php
+
+//Inicio en Picker 
+
+// Establecer la conexión con la base de datos
+$host = "localhost";
+$usuariobd = "mar";
+$contraseñabd = "1234";
+$bd = "Picker";
+
+
+//Crear la conexión a la base de datos 
+$conn = mysqli_connect($host, $usuariobd, $contraseñabd, $bd);
+
+
+// Verificar la conexión
+if (!$conn) {
+    die("Error al conectar con la base de datos: " . mysqli_connect_error());
+}
+
+
+//TABLAS
+
+//Crear la tabla usuarios si no existe
+$usuarios = "CREATE TABLE IF NOT EXISTS usuarios (
+    usuario VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(50) NOT NULL,
+    fotop VARCHAR(255),
+    fotoc VARCHAR(255),    
+    PRIMARY KEY (usuario)
+)";
+
+//Crear la tabla tweets si no existe
+ $tweets = "CREATE TABLE IF NOT EXISTS tweets (
+     usuario VARCHAR(50) NOT NULL,
+     texto VARCHAR(50) NOT NULL,
+     contraseña VARCHAR(50) NOT NULL,
+     PRIMARY KEY (usuario)
+ )";
+
+
+// Crear la tabla "comentarios" si no existe
+    $crearTablaComentarios = "CREATE TABLE IF NOT EXISTS comentarios (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        creador VARCHAR(255),
+        id_comentario_principal INT,
+        texto VARCHAR(255),
+        imagenc VARCHAR(255),
+        fechac DATETIME DEFAULT CURRENT_TIMESTAMP
+    )";
+
+
+if (!mysqli_query($conn, $crearTablaComentarios)) {
+    echo "Error al crear la tabla 'comentarios': " . mysqli_error($conn);
+}
+
+if (!mysqli_query($conn, $crearTabla)) {
+echo "Error al crear la tabla 'tweets': " . mysqli_error($conn);}
+
+if (!mysqli_query($conn, $usuarios)) {
+    echo "Error al crear la tabla 'tweets': " . mysqli_error($conn);}
+
+
+
+// Cerrar la conexión a la base de datos
+mysqli_close($conn);
+
+echo 'header(Location:inicio.php)';
+
+?>
